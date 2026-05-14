@@ -11,13 +11,18 @@
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Policies\" />
     <Folder Include="Inventory\Products\Commands\" />
-    <Folder Include="Inventory\Products\Handlers\" />
     <Folder Include="Inventory\Products\Validators\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InnovaSystem.Core.Domain\InnovaSystem.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>

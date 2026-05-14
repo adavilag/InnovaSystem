@@ -1,10 +1,8 @@
-﻿using InnovaSystem.Core.Application.Common.Behaviors;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
 
 namespace InnovaSystem.WebApi.Extensions
 {
-    public static class ServiceCollectionExtensions
+    public static class ConfigureServices
     {
         public static void ConfigureCors(this IServiceCollection services) =>
             services.AddCors(options => 
@@ -14,14 +12,7 @@ namespace InnovaSystem.WebApi.Extensions
                 .AllowAnyMethod()
                 .AllowAnyHeader());
             });
-
-        public static void ConfigureApplication(this IServiceCollection services)
-        {
-
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            ////services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
-            ////services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-        }
+        
 
         /// <summary>
         /// Método para inyectar configuración de DB y repositoriso
