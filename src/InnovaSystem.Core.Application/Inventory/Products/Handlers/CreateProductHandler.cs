@@ -1,4 +1,5 @@
-﻿using InnovaSystem.Core.Application.Inventory.Products.Commands;
+﻿using InnovaSystem.Core.Application.Common.Interfaces;
+using InnovaSystem.Core.Application.Inventory.Products.Commands;
 using InnovaSystem.Core.Domain.Common;
 using InnovaSystem.Core.Domain.Entities.Inventory;
 using MediatR;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 {
-    public class CreateProductHandler : IRequestHandler<CreateProductCommand, Result<CreateProductResult>>
+    public class CreateProductHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
         public Task<Result<CreateProductResult>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
@@ -23,7 +24,7 @@ namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 
             var product = new Product()
             {
-                ProductId = 1,
+                ProductId = request.Product.ProductId,
                 ProductName = request.Product.ProductName,
                 ProductDescription = request.Product.ProductDescription
             };

@@ -1,4 +1,5 @@
-﻿using InnovaSystem.Core.Application.Inventory.Products.DTOs;
+﻿using InnovaSystem.Core.Application.Common.Interfaces;
+using InnovaSystem.Core.Application.Inventory.Products.DTOs;
 using InnovaSystem.Core.Application.Inventory.Products.Queries;
 using InnovaSystem.Core.Domain.Common;
 using InnovaSystem.Core.Domain.Entities.Inventory;
@@ -6,7 +7,7 @@ using MediatR;
 
 namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 {
-    public class GetProductsHandler : IRequestHandler<GetProductsQuery, Result<GetProductsDto>>
+    public class GetProductsHandler : IQueryHandler<GetProductsQuery, GetProductsDto>
     {
         public Task<Result<GetProductsDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
