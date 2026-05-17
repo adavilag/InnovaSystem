@@ -9,13 +9,16 @@ namespace InnovaSystem.WebApi.Controllers.v1.Inventory
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/inventory/[controller]")]
-    public class ProductsController(IMediator mediator) : ControllerBase
+    public class ProductsController(IMediator mediator,
+        ILogger<ProductsController> logger) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
+        private readonly ILogger<ProductsController> _logger = logger;
 
         [HttpGet()]
         public async Task<IActionResult> GetProducts()
         {
+            _logger.LogInformation("Getting Products...!");
             var result = await _mediator.Send(new GetProductsQuery());
             return Ok(result);
         }

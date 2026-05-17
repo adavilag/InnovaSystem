@@ -15,6 +15,8 @@ namespace InnovaSystem.Core.Application
             {
                 cfg.RegisterServicesFromAssembly(
                     Assembly.GetExecutingAssembly());
+
+                cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
             });
 
             // FluentValidation
