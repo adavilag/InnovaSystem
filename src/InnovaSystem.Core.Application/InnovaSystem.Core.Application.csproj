@@ -8,10 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Mappings\" />
-    <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Policies\" />
-    <Folder Include="Inventory\Products\Commands\" />
-    <Folder Include="Inventory\Products\Validators\" />
   </ItemGroup>
 
   <ItemGroup>

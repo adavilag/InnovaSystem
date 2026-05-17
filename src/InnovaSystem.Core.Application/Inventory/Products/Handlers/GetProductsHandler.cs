@@ -1,23 +1,19 @@
 ﻿using InnovaSystem.Core.Application.Inventory.Products.DTOs;
 using InnovaSystem.Core.Application.Inventory.Products.Queries;
+using InnovaSystem.Core.Domain.Common;
 using InnovaSystem.Core.Domain.Entities.Inventory;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 {
-    public class GetProductsHandler : IRequestHandler<GetProductsQuery, GetProductsDto>
+    public class GetProductsHandler : IRequestHandler<GetProductsQuery, Result<GetProductsDto>>
     {
-        public Task<GetProductsDto> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+        public Task<Result<GetProductsDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var result = new GetProductsDto();
-            result.Products = new();
+            var response = new GetProductsDto();
+            response.Products = new();
 
-            result.Products.AddRange(new[]
+            response.Products.AddRange(new[]
             {
                 new Product
                 {
@@ -32,8 +28,8 @@ namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
                     ProductDescription = "Testing description 02"
                 }
             });
-
-            return Task.FromResult(result);
+            
+            return Task.FromResult(Result<GetProductsDto>.Success(response));
         }
     }
 }

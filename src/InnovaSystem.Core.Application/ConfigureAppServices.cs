@@ -1,4 +1,6 @@
 ﻿using FluentValidation;
+using InnovaSystem.Core.Application.Common.Behaviors;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -21,7 +23,7 @@ namespace InnovaSystem.Core.Application
 
 
             /*BEHAVIORS*/
-            // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             ////services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
             ////services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             ///
