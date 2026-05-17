@@ -12,18 +12,6 @@ namespace InnovaSystem.WebApi.Extensions
                 .AllowAnyMethod()
                 .AllowAnyHeader());
             });
-        
-
-        /// <summary>
-        /// Método para inyectar configuración de DB y repositoriso
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="configuration"></param>
-        public static void ConfigureInfrastructure(this IServiceCollection services, IConfiguration configuration)
-        {
-            //services.AddScoped<IUserRepository, IUserTwoFactorRecoveryCodeStore() >;
-        }
-
 
         public static void ConfigureIdentity(this IServiceCollection services)
         {

@@ -1,5 +1,7 @@
 using Asp.Versioning;
 using InnovaSystem.Core.Application;
+using InnovaSystem.Infrastructure.Persistence;
+using InnovaSystem.Infrastructure.Shared;
 using InnovaSystem.WebApi.Extensions;
 using Microsoft.OpenApi.Models;
 
@@ -35,7 +37,8 @@ builder.Services
 // Métodos de extension de servicios (custom)
 builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
-builder.Services.ConfigureInfrastructure(builder.Configuration); // Se debe ocupar el configureServices de Infrastructure
+builder.Services.AddInfrastructurePersistenceServices(builder.Configuration); // Se debe ocupar el configureServices de Infrastructure Persistence
+builder.Services.AddInfrastructureSharedServices(builder.Configuration); // Se debe ocupar el configureServices de Infrastructure Shared
 builder.Services.ConfigureIdentity();
 
 var app = builder.Build();
