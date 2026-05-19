@@ -1,8 +1,11 @@
 using Asp.Versioning;
 using InnovaSystem.Core.Application;
+using InnovaSystem.Core.Application.Common.Interfaces;
 using InnovaSystem.Infrastructure.Persistence;
 using InnovaSystem.Infrastructure.Shared;
 using InnovaSystem.WebApi.Extensions;
+using InnovaSystem.WebApi.Middlewares;
+using InnovaSystem.WebApi.Services;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,6 +37,10 @@ builder.Services
         options.SubstituteApiVersionInUrl = true;
     });
 
+// Inyección de servicios capa Web Api
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IRequestContextAccessor, RequestContextAccessor>();
+
 // Métodos de extension de servicios (custom)
 builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
@@ -58,6 +65,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<RequestContextMiddleware>();
 
 app.MapControllers();
 

@@ -1,16 +1,20 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using InnovaSystem.Core.Application.Inventory.Products.Queries;
-using Asp.Versioning;
+﻿using Asp.Versioning;
+using InnovaSystem.Core.Application.Common.Models;
 using InnovaSystem.Core.Application.Inventory.Products.Commands;
+using InnovaSystem.Core.Application.Inventory.Products.Queries;
+using InnovaSystem.Core.Application.Common.Interfaces;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InnovaSystem.WebApi.Controllers.v1.Inventory
 {
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/inventory/[controller]")]
-    public class ProductsController(IMediator mediator,
-        ILogger<ProductsController> logger) : ControllerBase
+    public class ProductsController(
+        IRequestContextAccessor requestContextAccesor,
+        IMediator mediator,
+        ILogger<ProductsController> logger) : ApiControllerBase(requestContextAccesor)
     {
         private readonly IMediator _mediator = mediator;
         private readonly ILogger<ProductsController> _logger = logger;

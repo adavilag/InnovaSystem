@@ -2,19 +2,15 @@
 using InnovaSystem.Core.Application.Inventory.Products.Commands;
 using InnovaSystem.Core.Domain.Common;
 using InnovaSystem.Core.Domain.Entities.Inventory;
-using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+    
 namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 {
     public class CreateProductHandler(
+        IRequestContextAccessor context,
         ILogger<CreateProductHandler> logger) : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
+        private readonly IRequestContextAccessor _context = context;
         private readonly ILogger<CreateProductHandler> _logger = logger;
 
         public Task<Result<CreateProductResult>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
