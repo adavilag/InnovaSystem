@@ -1,4 +1,4 @@
-﻿namespace InnovaSystem.Core.Domain.Common
+﻿namespace InnovaSystem.CrossCutting.Models
 {
     public class Result
     {

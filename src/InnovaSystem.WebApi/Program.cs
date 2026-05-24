@@ -1,6 +1,6 @@
 using Asp.Versioning;
 using InnovaSystem.Core.Application;
-using InnovaSystem.Core.Application.Common.Interfaces;
+using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
 using InnovaSystem.Infrastructure.Persistence;
 using InnovaSystem.Infrastructure.Shared;
 using InnovaSystem.WebApi.Extensions;

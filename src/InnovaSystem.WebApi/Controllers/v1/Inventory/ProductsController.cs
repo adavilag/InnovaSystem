@@ -2,9 +2,9 @@
 using InnovaSystem.Core.Application.Common.Models;
 using InnovaSystem.Core.Application.Inventory.Products.Commands;
 using InnovaSystem.Core.Application.Inventory.Products.Queries;
-using InnovaSystem.Core.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
 
 namespace InnovaSystem.WebApi.Controllers.v1.Inventory
 {

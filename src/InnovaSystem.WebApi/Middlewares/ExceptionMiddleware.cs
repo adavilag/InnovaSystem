@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using InnovaSystem.Core.Domain.Common;
+using InnovaSystem.CrossCutting.Models;
 using System.Diagnostics;
 using InnovaSystem.CrossCutting.Extensions;
 

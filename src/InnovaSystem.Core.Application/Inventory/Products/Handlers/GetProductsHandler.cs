@@ -1,9 +1,9 @@
-﻿using InnovaSystem.Core.Application.Common.Interfaces;
-using InnovaSystem.Core.Application.Inventory.Products.DTOs;
+﻿using InnovaSystem.Core.Application.Inventory.Products.DTOs;
 using InnovaSystem.Core.Application.Inventory.Products.Queries;
-using InnovaSystem.Core.Domain.Common;
+using InnovaSystem.CrossCutting.Models;
 using InnovaSystem.Core.Domain.Entities.Inventory;
 using Microsoft.Extensions.Logging;
+using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
 
 namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 {

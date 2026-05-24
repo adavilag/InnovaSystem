@@ -1,4 +1,4 @@
-﻿using InnovaSystem.Core.Application.Common.Interfaces;
+﻿using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InnovaSystem.WebApi.Controllers.v1

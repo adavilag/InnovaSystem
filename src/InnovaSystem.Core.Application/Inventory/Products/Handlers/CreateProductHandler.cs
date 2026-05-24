@@ -1,9 +1,9 @@
-﻿using InnovaSystem.Core.Application.Common.Interfaces;
+﻿using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
 using InnovaSystem.Core.Application.Inventory.Products.Commands;
-using InnovaSystem.Core.Domain.Common;
 using InnovaSystem.Core.Domain.Entities.Inventory;
+using InnovaSystem.CrossCutting.Models;
 using Microsoft.Extensions.Logging;
-    
+
 namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 {
     public class CreateProductHandler(

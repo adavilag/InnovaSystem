@@ -1,4 +1,4 @@
-﻿using InnovaSystem.Core.Application.Common.Interfaces;
+﻿using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
 using InnovaSystem.Core.Domain.Entities.Inventory;
 
 namespace InnovaSystem.Core.Application.Inventory.Products.Commands
