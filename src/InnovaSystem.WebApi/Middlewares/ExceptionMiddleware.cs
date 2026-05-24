@@ -1,21 +1,34 @@
 ﻿using FluentValidation;
 using InnovaSystem.Core.Domain.Common;
-using Microsoft.IdentityModel.Tokens.Experimental;
+using System.Diagnostics;
+using InnovaSystem.CrossCutting.Extensions;
 
 public class ExceptionMiddleware
 {
     private readonly RequestDelegate _next;
+    private readonly ILogger<ExceptionMiddleware> _logger;
 
-    public ExceptionMiddleware(RequestDelegate next)
+    public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
     {
         _next = next;
+        _logger = logger;
     }
 
     public async Task InvokeAsync(HttpContext context)
     {
         try
         {
+            var stopwatch = Stopwatch.StartNew();
+            _logger.LogInformation("Request iniciada: {Method} {Path}", context.Request.Method, context.Request.Path);
+
             await _next(context);
+
+            stopwatch.Stop();
+            _logger.LogInformation("Response finalizada ({Method} {Path}): {StatusCode}  ejecutado en {ElapsedMilliseconds} ms", 
+                context.Request.Method, 
+                context.Request.Path, 
+                context.Response.StatusCode,
+                stopwatch.ElapsedMilliseconds);
         }
         catch (ValidationException ex)
         {
@@ -30,11 +43,17 @@ public class ExceptionMiddleware
                 .ToList();
 
             var result = Result<List<EntityValidationError>>.Failure(
-                Error.Validation(
-                    "One or more validation errors occurred."),
-                dataValidationErrors);
+                HttpError.Validation(
+                    $"Se han detectado errores de validación"), dataValidationErrors);
+
+            _logger.LogError($"{result.Error?.Message}: {dataValidationErrors.ToJson()}");
 
             await context.Response.WriteAsJsonAsync(result);
+        }
+        catch (Exception ex2)
+        {
+            HttpError error = HttpError.Internal("Ha ocurrido un error no controlado!");
+            context.Response.StatusCode = error.StatusCode;
         }
     }
 }

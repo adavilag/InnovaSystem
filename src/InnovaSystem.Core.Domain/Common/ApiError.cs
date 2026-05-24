@@ -1,6 +1,6 @@
 ﻿namespace InnovaSystem.Core.Domain.Common
 {
-    public class ApiErrorCode
+    public class ApiError
     {
         public string? ErrorCode { get; set; }
         public string? ErrorTitle { get; set; }

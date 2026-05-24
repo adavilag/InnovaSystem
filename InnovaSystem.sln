@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnovaSystem.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnovaSystem.WebApi", "src\InnovaSystem.WebApi\InnovaSystem.WebApi.csproj", "{EBC5EDE0-D023-4510-A39D-2ABD4DE37610}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnovaSystem.CrossCutting", "src\InnovaSystem.CrossCutting\InnovaSystem.CrossCutting.csproj", "{BE0204F1-7196-449C-9E82-E3A8D4244254}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{EBC5EDE0-D023-4510-A39D-2ABD4DE37610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBC5EDE0-D023-4510-A39D-2ABD4DE37610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBC5EDE0-D023-4510-A39D-2ABD4DE37610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE0204F1-7196-449C-9E82-E3A8D4244254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0204F1-7196-449C-9E82-E3A8D4244254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0204F1-7196-449C-9E82-E3A8D4244254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0204F1-7196-449C-9E82-E3A8D4244254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{1402D15E-13D7-9D34-E4FD-202BB0C001D9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{F8430506-8B95-4002-85A3-19C1665154D1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{EBC5EDE0-D023-4510-A39D-2ABD4DE37610} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{BE0204F1-7196-449C-9E82-E3A8D4244254} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82151C78-7A3A-4365-8FA2-360E74B324AE}

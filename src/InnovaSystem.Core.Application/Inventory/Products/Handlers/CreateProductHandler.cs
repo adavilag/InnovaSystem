@@ -19,7 +19,7 @@ namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
 
             if (request.Product is null)
             {
-                return Task.FromResult(Result<CreateProductResult>.Failure(Error.NotFound("Producto no encontrado")));
+                return Task.FromResult(Result<CreateProductResult>.Failure(HttpError.NotFound("Producto no encontrado")));
             }
 
             var product = new Product()

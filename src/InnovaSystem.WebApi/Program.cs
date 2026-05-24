@@ -38,7 +38,7 @@ builder.Services
     });
 
 // Inyección de servicios capa Web Api
-builder.Services.AddHttpContextAccessor();
+//builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IRequestContextAccessor, RequestContextAccessor>();
 
 // Métodos de extension de servicios (custom)

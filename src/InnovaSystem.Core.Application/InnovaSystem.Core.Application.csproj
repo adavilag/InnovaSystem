@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Mappings\" />
+    <Folder Include="Common\Errors\" />
     <Folder Include="Common\Policies\" />
   </ItemGroup>
 
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InnovaSystem.Core.Domain\InnovaSystem.Core.Domain.csproj" />
+    <ProjectReference Include="..\InnovaSystem.CrossCutting\InnovaSystem.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

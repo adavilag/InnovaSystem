@@ -3,10 +3,10 @@
     public class Result
     {
         public bool IsSuccess { get; }
-        public Error? Error { get; }
-        public List<ApiErrorCode>? ApiErrors { get; set; }
+        public HttpError? Error { get; }
+        public List<ApiError>? ApiErrors { get; set; }
 
-        protected Result(bool isSuccess, Error? error, List<ApiErrorCode>? apiErrorCodes = null)
+        protected Result(bool isSuccess, HttpError? error, List<ApiError>? apiErrorCodes = null)
         {
             IsSuccess = isSuccess;
             Error = error;
@@ -18,7 +18,7 @@
             return new(true, null, null);
         }
 
-        public static Result Failure(Error error, List<ApiErrorCode>? apiErrorCodes = null)
+        public static Result Failure(HttpError error, List<ApiError>? apiErrorCodes = null)
         {
             return new(false, error, apiErrorCodes);
         }
@@ -31,8 +31,8 @@
         private Result(
             bool isSuccess,
             T? data,
-            Error? error,
-            List<ApiErrorCode>? apiErrors)
+            HttpError? error,
+            List<ApiError>? apiErrors)
             : base(isSuccess, error, apiErrors)
         {
             Data = data;
@@ -41,7 +41,7 @@
         public static Result<T> Success(T data)
             => new(true, data, null, null);
 
-        public static Result<T> Failure(Error? error, T? data = default, List<ApiErrorCode>? apiErrors = null)
+        public static Result<T> Failure(HttpError? error, T? data = default, List<ApiError>? apiErrors = null)
             => new(false, data, error, apiErrors);
     }
 }
