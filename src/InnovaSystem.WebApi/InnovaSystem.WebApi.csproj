@@ -20,4 +20,10 @@
     <ProjectReference Include="..\InnovaSystem.Infrastructure.Shared\InnovaSystem.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Resources\ApiErrorCatalog.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

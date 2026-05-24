@@ -1,0 +1,14 @@
+{
+  "AEC0001": {
+    "errorCode": "AEC0001",
+    "errorTitle": "Error no controlado",
+    "friendlyErrorDescription": "Ha ocurrido un error no controlado.",
+    "technicalErrorDescription": "Se ha disparado una excepción no controlada"
+  },
+  "AEC9999": {
+    "errorCode": "AEC9999",
+    "errorTitle": "Error desconocido",
+    "friendlyErrorDescription": "Ha ocurrido un error inesperado.",
+    "technicalErrorDescription": "Ha ocurrido un error desconocido que no está registrado en el catálogo de errores."
+  }
+}

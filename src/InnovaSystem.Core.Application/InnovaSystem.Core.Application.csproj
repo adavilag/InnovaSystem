@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Mappings\" />
-    <Folder Include="Common\Errors\" />
     <Folder Include="Common\Policies\" />
   </ItemGroup>
 

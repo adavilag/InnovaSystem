@@ -1,0 +1,8 @@
+{
+  "AEC0001": {
+    "ErrorCode": "AEC0001",
+    "ErrorTitle": "Error no controlado",
+    "FriendlyErrorDescription": "Ha ocurrido un error no controlado.",
+    "TechnicalErrorDescription": "Se ha disparado una excepción no controlada"
+  }
+}

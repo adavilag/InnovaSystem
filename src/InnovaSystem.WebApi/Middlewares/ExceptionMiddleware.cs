@@ -2,6 +2,7 @@
 using InnovaSystem.CrossCutting.Models;
 using System.Diagnostics;
 using InnovaSystem.CrossCutting.Extensions;
+using InnovaSystem.Core.Application.Common.Errors;
 
 public class ExceptionMiddleware
 {
@@ -43,17 +44,27 @@ public class ExceptionMiddleware
                 .ToList();
 
             var result = Result<List<EntityValidationError>>.Failure(
-                HttpError.Validation(
-                    $"Se han detectado errores de validación"), dataValidationErrors);
+                HttpError.Validation($"Se han detectado errores de validación"), 
+                dataValidationErrors);
 
-            _logger.LogError($"{result.Error?.Message}: {dataValidationErrors.ToJson()}");
+            context.Response.StatusCode = result.HttpError!.StatusCode;
+
+            _logger.LogError($"{result.HttpError?.Message}: {dataValidationErrors.ToJson()}");
 
             await context.Response.WriteAsJsonAsync(result);
         }
-        catch (Exception ex2)
+        catch (Exception)
         {
-            HttpError error = HttpError.Internal("Ha ocurrido un error no controlado!");
-            context.Response.StatusCode = error.StatusCode;
+            var apiError = ApiErrorCatalog.Get(ApiErrorConstants.ErrorNotManaged);
+            HttpError httpError = HttpError.Internal("Ha ocurrido un error no controlado!");
+
+            var result = Result<List<EntityValidationError>>.Failure(
+                httpError, 
+                new List<ApiError> { apiError });
+
+            context.Response.StatusCode = httpError.StatusCode;
+
+            await context.Response.WriteAsJsonAsync(result);
         }
     }
 }

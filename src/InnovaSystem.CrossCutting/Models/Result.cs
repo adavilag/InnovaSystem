@@ -3,13 +3,13 @@
     public class Result
     {
         public bool IsSuccess { get; }
-        public HttpError? Error { get; }
+        public HttpError? HttpError { get; }
         public List<ApiError>? ApiErrors { get; set; }
 
         protected Result(bool isSuccess, HttpError? error, List<ApiError>? apiErrorCodes = null)
         {
             IsSuccess = isSuccess;
-            Error = error;
+            HttpError = error;
             ApiErrors = apiErrorCodes;
         }
 

@@ -19,6 +19,8 @@ namespace InnovaSystem.Core.Application.Inventory.Products.Handlers
             var response = new GetProductsDto();
             response.Products = new();
 
+            throw new Exception("Exception Test");
+
             response.Products.AddRange(new[]
             {
                 new Product
