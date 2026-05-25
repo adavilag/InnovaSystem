@@ -20,10 +20,19 @@ namespace InnovaSystem.WebApi.Controllers.v1.Inventory
         private readonly ILogger<ProductsController> _logger = logger;
 
         [HttpGet()]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> GetProducts(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Getting Products...!");
-            var result = await _mediator.Send(new GetProductsQuery());
+            var result = await _mediator.Send(new GetProductsQuery(), cancellationToken);
+            return Ok(result);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetProductById(int id, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Getting Product By Id: {ProductId}", id);
+            var query = new GetProductByIdQuery(id);
+            var result = await _mediator.Send(query, cancellationToken); 
             return Ok(result);
         }
 

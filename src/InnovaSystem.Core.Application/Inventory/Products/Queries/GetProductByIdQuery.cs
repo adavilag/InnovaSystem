@@ -1,7 +1,7 @@
-﻿using InnovaSystem.Core.Application.Inventory.Products.DTOs;
-using MediatR;
+﻿using InnovaSystem.Core.Application.Common.Interfaces.CQRS;
+using InnovaSystem.Core.Application.Inventory.Products.DTOs;
 
 namespace InnovaSystem.Core.Application.Inventory.Products.Queries
 {
-    public record GetProductByIdQuery(int id) : IRequest<ProductDto> { }
+    public record GetProductByIdQuery(int ProductId) : IQuery<GetProductByIdDto> { }
 }

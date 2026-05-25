@@ -4,5 +4,11 @@
     "ErrorTitle": "Error no controlado",
     "FriendlyErrorDescription": "Ha ocurrido un error no controlado.",
     "TechnicalErrorDescription": "Se ha disparado una excepción no controlada"
+  },
+  "AEC0002": {
+    "ErrorCode": "AEC0002",
+    "ErrorTitle": "El registro no existe",
+    "FriendlyErrorDescription": "No pudimos encontrar un registro con los parámetros establecidos",
+    "TechnicalErrorDescription": "No se obtuvieron registros en la tabla {0} con el id: {1}"
   }
 }

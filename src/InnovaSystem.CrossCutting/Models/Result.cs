@@ -43,5 +43,8 @@
 
         public static Result<T> Failure(HttpError? error, T? data = default, List<ApiError>? apiErrors = null)
             => new(false, data, error, apiErrors);
+
+        public static Result<T> Failure(HttpError? error, ApiError apiError, T? data = default)
+    => new(false, data, error, new List<ApiError> { apiError });
     }
 }
