@@ -6,7 +6,7 @@ using InnovaSystem.Infrastructure.Shared;
 using InnovaSystem.WebApi.Extensions;
 using InnovaSystem.WebApi.Middlewares;
 using InnovaSystem.WebApi.Services;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,18 +30,20 @@ builder.Services
         options.DefaultApiVersion = new ApiVersion(1, 0);
         options.AssumeDefaultVersionWhenUnspecified = true;
         options.ReportApiVersions = true;
+        options.ApiVersionReader = new UrlSegmentApiVersionReader();
     })
+    .AddMvc()
     .AddApiExplorer(options =>
     {
         options.GroupNameFormat = "'v'VVV";
         options.SubstituteApiVersionInUrl = true;
     });
 
-// InyecciÛn de servicios capa Web Api
+// Inyeccion de servicios capa Web Api
 //builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IRequestContextAccessor, RequestContextAccessor>();
 
-// MÈtodos de extension de servicios (custom)
+// Mùetodos de extension de servicios (custom)
 builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructurePersistenceServices(builder.Configuration); // Se debe ocupar el configureServices de Infrastructure Persistence
